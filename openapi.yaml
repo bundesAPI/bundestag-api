@@ -1,32 +1,136 @@
 openapi: "3.0.0"
 info:
-  description: "API Description"
+  description: "Bundestag Informationen API "
   version: "1.0.0"
-  title: "Amtsname: API Name"
+  title: "Bundestag: Live Informationen"
 
 servers:
-  - url: "https://warnung.bund.de/api31"
+  - url: "https://www.bundestag.de/"
 
 paths:
-  /dashboard/{AGS}.json:
+  /blueprint/servlet/content/{ARTICLE_ID}/asAppV2NewsarticleXml:
     get:
-      summary: Name des Endpoints
+      summary: Artikel Details
       responses:
         '200':
             description: OK
             content:
-              application/json:
+              application/xml:
                 schema:
-                  $ref: '#/components/schemas/Result'
+                  type: string
       parameters:
         - in: path
           required: true
-          name: AGS
+          name: ARTICLE_ID
+          schema:
+            type: integer
+          description: ID des Nachrichtenbeitrags
+          example: 849630
+
+  /static/appdata/plenum/v2/speaker.xml:
+    get:
+      summary: "Aktuelle Sprecher*in"
+      responses:
+        '200':
+            description: OK
+            content:
+              application/xml:
+                schema:
+                  type: string
+
+  /static/appdata/plenum/v2/conferences.xml:
+    get:
+      summary: "Sitzungstag übersicht"
+      responses:
+        '200':
+            description: OK
+            content:
+              application/xml:
+                schema:
+                  type: string
+
+  /xml/v2/ausschuesse/index.xml:
+    get:
+      summary: "Übersicht über die Ausschüsse"
+      responses:
+        '200':
+            description: OK
+            content:
+              application/xml:
+                schema:
+                  type: string
+
+  /xml/v2/ausschuesse/{AUSSCHUSS_ID}.xml:
+    get:
+      summary: "Übersicht über die Ausschüsse"
+      responses:
+        '200':
+            description: OK
+            content:
+              application/xml:
+                schema:
+                  type: string
+      parameters:
+        - in: path
+          required: true
+          name: AUSSCHUSS_ID
           schema:
             type: string
-          description: Amtlicher Gebietsschlüssel - kann z.B. von [hier](https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2021-07-31/download/Regionalschl_ssel_2021-07-31.json) bezogen werden. Die Letzten 7 Stellen müssen dabei mit "0000000" ersetzt werden, weil die Daten nur auf [Kreisebene](https://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel) bereitgestellt werden. 
-          example: 091620000000
+          description: ID des Ausschusses
+          example: "a11"
+          
 
+  /xml/v2/mdb/index.xml:
+    get:
+      summary: "Übersicht über alle MDBS"
+      responses:
+        '200':
+            description: OK
+            content:
+              application/xml:
+                schema:
+                  type: string
+
+  /xml/v2/mdb/biografien/{MDB_ID}.xml:
+    get:
+      summary: "Abruf Details eines MDBS"
+      responses:
+        '200':
+            description: OK
+            content:
+              application/xml:
+                schema:
+                  type: string
+      parameters:
+        - in: path
+          required: true
+          name: MDB_ID
+          schema:
+            type: integer
+          description: ID des MDB
+          example: 1769
+          
+
+  /iptv/player/macros/_x_s-144277506/bttv/mobile/feed_vod.xml:
+    get:
+      summary: "Abruf eines Videos"
+      responses:
+        '200':
+            description: OK
+            content:
+              application/xml:
+                schema:
+                  type: string
+      parameters:
+        - in: query
+          required: true
+          name: contentId
+          schema:
+            type: integer
+          description: ID des MDB
+          example: 7529016
+      servers:
+        - url: 'http://webtv.bundestag.de'
           
 components: 
     schemas:
