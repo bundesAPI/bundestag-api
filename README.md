@@ -1,4 +1,4 @@
-# "Bundestag API"
+# Bundestag API
 
 Bundestag: Live Informationen
 
@@ -66,6 +66,7 @@ Abruf Details eines MDBS
 Abruf eines Videos
 
 
+## Beispiel
 
 ```bash
 result=$(curl -m 60 https://www.bundestag.de/xml/v2/ausschuesse/index.xml)
