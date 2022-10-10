@@ -37,7 +37,7 @@ Sitzungstag übersicht
 
 ## {AUSSCHUSS_ID}.xml
 
-**URL:** https://www.bundestag.dexml/v2/ausschuesse/{AUSSCHUSS_ID}.xml
+**URL:** https://www.bundestag.de/xml/v2/ausschuesse/{AUSSCHUSS_ID}.xml
 
 Übersicht über die Ausschüsse
 
