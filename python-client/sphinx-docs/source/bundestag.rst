@@ -7,10 +7,10 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   bundestag.api
    bundestag.apis
    bundestag.model
    bundestag.models
-   bundestag.paths
 
 Submodules
 ----------
@@ -39,18 +39,18 @@ bundestag.exceptions module
    :undoc-members:
    :show-inheritance:
 
-bundestag.rest module
----------------------
+bundestag.model\_utils module
+-----------------------------
 
-.. automodule:: bundestag.rest
+.. automodule:: bundestag.model_utils
    :members:
    :undoc-members:
    :show-inheritance:
 
-bundestag.schemas module
-------------------------
+bundestag.rest module
+---------------------
 
-.. automodule:: bundestag.schemas
+.. automodule:: bundestag.rest
    :members:
    :undoc-members:
    :show-inheritance:

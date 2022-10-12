@@ -1,5 +1,3 @@
-# coding: utf-8
-
 # flake8: noqa
 
 # import all models into this package
@@ -10,5 +8,3 @@
 # or import this package, but before doing it, use:
 # import sys
 # sys.setrecursionlimit(n)
-
-from deutschland.bundestag.model.result import Result
