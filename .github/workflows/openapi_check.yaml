@@ -1,4 +1,11 @@
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - "openapi*.yaml"
+  pull_request:
+    paths:
+      - "openapi*.yaml"
+
 jobs:
     openapi_check:
       name: "OpenAPI check"
